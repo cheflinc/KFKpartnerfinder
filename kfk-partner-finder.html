@@ -5,12 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>KFK Partner Finder</title>
 <style>
-  /* ============================================================
-     KIDS FEEDING KIDS — Distribution Partner Finder
-     Warm, approachable, community-forward aesthetic
-     Clean functional form with generous spacing
-     ============================================================ */
-
   @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap');
 
   :root {
@@ -37,9 +31,7 @@
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { font-size: 16px; scroll-behavior: smooth; }
-
   body {
     background: var(--bg);
     color: var(--text);
@@ -50,380 +42,150 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  /* ---- HEADER ---- */
-  .page-header {
-    background: var(--green);
-    padding: 28px 20px 24px;
-    text-align: center;
-  }
-
+  .page-header { background: var(--green); padding: 28px 20px 24px; text-align: center; }
   .header-eyebrow {
-    font-family: var(--sans);
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.6);
-    margin-bottom: 8px;
+    font-family: var(--sans); font-size: 11px; font-weight: 600;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: rgba(255,255,255,0.6); margin-bottom: 8px;
   }
+  .header-title { font-family: var(--serif); font-size: 28px; color: #ffffff; line-height: 1.2; margin-bottom: 8px; }
+  .header-title em { font-style: italic; color: #a8d5b8; }
+  .header-sub { font-size: 14px; color: rgba(255,255,255,0.7); max-width: 340px; margin: 0 auto; line-height: 1.5; }
 
-  .header-title {
-    font-family: var(--serif);
-    font-size: 28px;
-    color: #ffffff;
-    line-height: 1.2;
-    margin-bottom: 8px;
-  }
+  .main { max-width: 600px; margin: 0 auto; padding: 24px 16px 60px; }
 
-  .header-title em {
-    font-style: italic;
-    color: #a8d5b8;
-  }
-
-  .header-sub {
-    font-size: 14px;
-    color: rgba(255,255,255,0.7);
-    max-width: 340px;
-    margin: 0 auto;
-    line-height: 1.5;
-  }
-
-  /* ---- MAIN WRAPPER ---- */
-  .main {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 24px 16px 60px;
-  }
-
-  /* ---- CARD ---- */
   .card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow);
-    padding: 24px;
-    margin-bottom: 20px;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius-lg); box-shadow: var(--shadow);
+    padding: 24px; margin-bottom: 20px;
   }
+  .card-title { font-family: var(--serif); font-size: 18px; color: var(--text); margin-bottom: 4px; }
+  .card-sub { font-size: 13px; color: var(--text-muted); margin-bottom: 20px; line-height: 1.5; }
 
-  .card-title {
-    font-family: var(--serif);
-    font-size: 18px;
-    color: var(--text);
-    margin-bottom: 4px;
-  }
-
-  .card-sub {
-    font-size: 13px;
-    color: var(--text-muted);
-    margin-bottom: 20px;
-    line-height: 1.5;
-  }
-
-  /* ---- FIELDS ---- */
   .field { margin-bottom: 18px; }
   .field:last-child { margin-bottom: 0; }
 
   label {
-    display: block;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--text-mid);
-    margin-bottom: 6px;
+    display: block; font-size: 12px; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--text-mid); margin-bottom: 6px;
   }
-
   label .req { color: var(--amber); margin-left: 2px; }
 
-  input[type="text"],
-  select,
-  textarea {
-    width: 100%;
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    color: var(--text);
-    font-family: var(--sans);
-    font-size: 15px;
-    padding: 11px 14px;
-    outline: none;
+  input[type="text"], select, textarea {
+    width: 100%; background: var(--surface2); border: 1px solid var(--border);
+    border-radius: var(--radius); color: var(--text); font-family: var(--sans);
+    font-size: 15px; padding: 11px 14px; outline: none;
     transition: border-color var(--transition), background var(--transition);
-    -webkit-appearance: none;
-    appearance: none;
+    -webkit-appearance: none; appearance: none;
   }
+  input[type="text"]::placeholder, textarea::placeholder { color: var(--text-dim); }
+  input[type="text"]:focus, select:focus, textarea:focus { border-color: var(--border-focus); background: #ffffff; }
+  input[type="text"].error, select.error { border-color: #c0392b; }
 
-  input[type="text"]::placeholder,
-  textarea::placeholder { color: var(--text-dim); }
-
-  input[type="text"]:focus,
-  select:focus,
-  textarea:focus {
-    border-color: var(--border-focus);
-    background: #ffffff;
-  }
-
-  input[type="text"].error,
-  select.error { border-color: #c0392b; }
-
-  .field-error {
-    font-size: 12px;
-    color: #c0392b;
-    margin-top: 4px;
-    display: none;
-  }
+  .field-error { font-size: 12px; color: #c0392b; margin-top: 4px; display: none; }
   .field-error.visible { display: block; }
 
   select {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238a8580' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 14px center;
-    padding-right: 38px;
-    cursor: pointer;
+    background-repeat: no-repeat; background-position: right 14px center;
+    padding-right: 38px; cursor: pointer;
   }
-
   select option { background: #ffffff; color: var(--text); }
 
-  /* Pre-filled field styling */
-  .prefilled {
-    background: var(--green-pale);
-    border-color: #b7e4c7;
-    color: var(--green);
-    font-weight: 500;
-  }
+  .prefilled { background: var(--green-pale); border-color: #b7e4c7; color: var(--green); font-weight: 500; }
+  .prefilled-note { font-size: 11px; color: var(--green-light); margin-top: 4px; font-style: italic; }
 
-  .prefilled-note {
-    font-size: 11px;
-    color: var(--green-light);
-    margin-top: 4px;
-    font-style: italic;
-  }
+  .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 
-  /* ---- TWO COLUMN ROW ---- */
-  .row-2 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-  }
-
-  /* ---- CHECKBOX GROUP ---- */
-  .checkbox-group {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
+  .checkbox-group { display: flex; flex-direction: column; gap: 10px; }
   .checkbox-option {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 12px 14px;
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    cursor: pointer;
-    transition: all var(--transition);
-    -webkit-tap-highlight-color: transparent;
-    user-select: none;
+    display: flex; align-items: center; gap: 12px;
+    padding: 12px 14px; background: var(--surface2);
+    border: 1px solid var(--border); border-radius: var(--radius);
+    cursor: pointer; transition: all var(--transition);
+    -webkit-tap-highlight-color: transparent; user-select: none;
   }
-
   .checkbox-option:active { transform: scale(0.99); }
-
-  .checkbox-option.checked {
-    background: var(--green-pale);
-    border-color: #95d5b2;
-  }
-
+  .checkbox-option.checked { background: var(--green-pale); border-color: #95d5b2; }
   .checkbox-option input[type="checkbox"] { display: none; }
-
   .check-box {
-    width: 20px;
-    height: 20px;
-    border: 2px solid var(--border);
-    border-radius: 4px;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all var(--transition);
-    background: white;
+    width: 20px; height: 20px; border: 2px solid var(--border); border-radius: 4px;
+    flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+    transition: all var(--transition); background: white;
   }
-
-  .checkbox-option.checked .check-box {
-    background: var(--green);
-    border-color: var(--green);
-  }
-
+  .checkbox-option.checked .check-box { background: var(--green); border-color: var(--green); }
   .check-box svg { display: none; }
   .checkbox-option.checked .check-box svg { display: block; }
+  .checkbox-label { font-size: 14px; color: var(--text-mid); line-height: 1.3; }
+  .checkbox-option.checked .checkbox-label { color: var(--green); font-weight: 500; }
 
-  .checkbox-label {
-    font-size: 14px;
-    color: var(--text-mid);
-    line-height: 1.3;
-  }
-
-  .checkbox-option.checked .checkbox-label {
-    color: var(--green);
-    font-weight: 500;
-  }
-
-  /* ---- SUBMIT BUTTON ---- */
   .submit-btn {
-    width: 100%;
-    padding: 16px;
-    background: var(--green);
-    border: none;
-    border-radius: var(--radius);
-    color: #ffffff;
-    font-family: var(--sans);
-    font-size: 15px;
-    font-weight: 600;
-    cursor: pointer;
+    width: 100%; padding: 16px; background: var(--green); border: none;
+    border-radius: var(--radius); color: #ffffff; font-family: var(--sans);
+    font-size: 15px; font-weight: 600; cursor: pointer;
     transition: background var(--transition), transform var(--transition);
     -webkit-tap-highlight-color: transparent;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 24px;
+    display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 24px;
   }
-
   .submit-btn:active { transform: scale(0.99); background: #1b4332; }
   .submit-btn:disabled { background: #95d5b2; cursor: not-allowed; transform: none; }
-
   .submit-btn .spinner {
-    width: 18px;
-    height: 18px;
-    border: 2px solid rgba(255,255,255,0.3);
-    border-top-color: white;
-    border-radius: 50%;
-    animation: spin 0.7s linear infinite;
-    display: none;
+    width: 18px; height: 18px; border: 2px solid rgba(255,255,255,0.3);
+    border-top-color: white; border-radius: 50%;
+    animation: spin 0.7s linear infinite; display: none;
   }
-
   .submit-btn.loading .spinner { display: block; }
   .submit-btn.loading .btn-text { opacity: 0.7; }
-
   @keyframes spin { to { transform: rotate(360deg); } }
 
-  /* ---- PROMPT PREVIEW ---- */
   .prompt-preview {
-    background: #f8f5ef;
-    border: 1px solid var(--border);
-    border-left: 3px solid var(--amber);
-    border-radius: var(--radius);
-    padding: 14px 16px;
-    margin-top: 16px;
-    display: none;
+    background: #f8f5ef; border: 1px solid var(--border);
+    border-left: 3px solid var(--amber); border-radius: var(--radius);
+    padding: 14px 16px; margin-top: 16px; display: none;
   }
-
   .prompt-preview.visible { display: block; }
-
   .prompt-preview-label {
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--amber);
-    margin-bottom: 6px;
+    font-size: 10px; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--amber); margin-bottom: 6px;
   }
+  .prompt-preview-text { font-size: 12px; color: var(--text-muted); line-height: 1.6; font-style: italic; }
 
-  .prompt-preview-text {
-    font-size: 12px;
-    color: var(--text-muted);
-    line-height: 1.6;
-    font-style: italic;
-  }
-
-  /* ---- LOADING STATE ---- */
-  .loading-state {
-    display: none;
-    text-align: center;
-    padding: 40px 20px;
-  }
-
+  .loading-state { display: none; text-align: center; padding: 40px 20px; }
   .loading-state.visible { display: block; }
-
-  .loading-dots {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    margin-bottom: 16px;
-  }
-
+  .loading-dots { display: flex; justify-content: center; gap: 8px; margin-bottom: 16px; }
   .loading-dots span {
-    width: 10px;
-    height: 10px;
-    background: var(--green-light);
-    border-radius: 50%;
-    animation: pulse 1.2s ease-in-out infinite;
+    width: 10px; height: 10px; background: var(--green-light);
+    border-radius: 50%; animation: pulse 1.2s ease-in-out infinite;
   }
-
   .loading-dots span:nth-child(2) { animation-delay: 0.2s; }
   .loading-dots span:nth-child(3) { animation-delay: 0.4s; }
-
   @keyframes pulse {
     0%, 80%, 100% { transform: scale(0.7); opacity: 0.4; }
     40% { transform: scale(1); opacity: 1; }
   }
+  .loading-label { font-family: var(--serif); font-size: 16px; color: var(--text-mid); margin-bottom: 6px; }
+  .loading-sub { font-size: 13px; color: var(--text-muted); }
 
-  .loading-label {
-    font-family: var(--serif);
-    font-size: 16px;
-    color: var(--text-mid);
-    margin-bottom: 6px;
-  }
-
-  .loading-sub {
-    font-size: 13px;
-    color: var(--text-muted);
-  }
-
-  /* ---- RESULTS ---- */
-  .results-section {
-    display: none;
-    animation: fadeUp 0.4s ease forwards;
-  }
-
+  .results-section { display: none; animation: fadeUp 0.4s ease forwards; }
   .results-section.visible { display: block; }
-
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(12px); }
     to { opacity: 1; transform: translateY(0); }
   }
-
   .results-header {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    margin-bottom: 16px;
-    flex-wrap: wrap;
-    gap: 8px;
+    display: flex; align-items: baseline; justify-content: space-between;
+    margin-bottom: 16px; flex-wrap: wrap; gap: 8px;
   }
+  .results-title { font-family: var(--serif); font-size: 22px; color: var(--text); }
+  .results-meta { font-size: 12px; color: var(--text-muted); }
 
-  .results-title {
-    font-family: var(--serif);
-    font-size: 22px;
-    color: var(--text);
-  }
-
-  .results-meta {
-    font-size: 12px;
-    color: var(--text-muted);
-  }
-
-  /* ---- ORGANIZATION CARD ---- */
   .org-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow);
-    margin-bottom: 14px;
-    overflow: hidden;
-    animation: fadeUp 0.3s ease forwards;
-    opacity: 0;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius-lg); box-shadow: var(--shadow);
+    margin-bottom: 14px; overflow: hidden;
+    animation: fadeUp 0.3s ease forwards; opacity: 0;
   }
-
   .org-card:nth-child(1)  { animation-delay: 0.05s; }
   .org-card:nth-child(2)  { animation-delay: 0.10s; }
   .org-card:nth-child(3)  { animation-delay: 0.15s; }
@@ -436,213 +198,79 @@
   .org-card:nth-child(10) { animation-delay: 0.50s; }
 
   .org-header {
-    padding: 16px 18px 12px;
-    border-bottom: 1px solid var(--border);
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 12px;
+    padding: 16px 18px 12px; border-bottom: 1px solid var(--border);
+    display: flex; align-items: flex-start; justify-content: space-between; gap: 12px;
   }
-
-  .org-name {
-    font-family: var(--serif);
-    font-size: 17px;
-    color: var(--text);
-    line-height: 1.3;
-  }
-
+  .org-name { font-family: var(--serif); font-size: 17px; color: var(--text); line-height: 1.3; }
   .org-type-badge {
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    background: var(--surface2);
-    color: var(--text-muted);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 3px 10px;
-    white-space: nowrap;
-    flex-shrink: 0;
+    font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+    background: var(--surface2); color: var(--text-muted); border: 1px solid var(--border);
+    border-radius: 20px; padding: 3px 10px; white-space: nowrap; flex-shrink: 0;
   }
-
   .org-body { padding: 14px 18px; }
-
-  .org-row {
-    margin-bottom: 10px;
-    font-size: 14px;
-    line-height: 1.5;
-  }
-
+  .org-row { margin-bottom: 10px; font-size: 14px; line-height: 1.5; }
   .org-row:last-child { margin-bottom: 0; }
-
   .org-row-label {
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--text-dim);
-    margin-bottom: 2px;
+    font-size: 10px; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--text-dim); margin-bottom: 2px;
   }
-
   .org-row-value { color: var(--text-mid); }
-
-  .org-link {
-    color: var(--green-light);
-    text-decoration: none;
-    word-break: break-all;
-    font-size: 13px;
-  }
-
+  .org-link { color: var(--green-light); text-decoration: none; word-break: break-all; font-size: 13px; }
   .org-link:hover { text-decoration: underline; }
+  .why-fit { background: var(--green-pale); border-radius: 6px; padding: 10px 12px; font-size: 13px; color: var(--green); line-height: 1.5; }
 
-  .why-fit {
-    background: var(--green-pale);
-    border-radius: 6px;
-    padding: 10px 12px;
-    font-size: 13px;
-    color: var(--green);
-    line-height: 1.5;
-  }
-
-  /* ---- EMAIL DRAFTS SECTION ---- */
-  .email-section {
-    margin-top: 8px;
-  }
-
-  .email-section-title {
-    font-family: var(--serif);
-    font-size: 20px;
-    color: var(--text);
-    margin-bottom: 4px;
-  }
-
-  .email-section-sub {
-    font-size: 13px;
-    color: var(--text-muted);
-    margin-bottom: 16px;
-  }
-
+  .email-section { margin-top: 8px; }
+  .email-section-title { font-family: var(--serif); font-size: 20px; color: var(--text); margin-bottom: 4px; }
+  .email-section-sub { font-size: 13px; color: var(--text-muted); margin-bottom: 16px; }
   .email-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow);
-    margin-bottom: 14px;
-    overflow: hidden;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius-lg); box-shadow: var(--shadow);
+    margin-bottom: 14px; overflow: hidden;
   }
-
   .email-header {
-    padding: 14px 18px;
-    background: var(--amber-pale);
-    border-bottom: 1px solid #f0d9b5;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    padding: 14px 18px; background: var(--amber-pale); border-bottom: 1px solid #f0d9b5;
+    display: flex; align-items: center; justify-content: space-between;
   }
-
-  .email-label {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--amber);
-  }
-
+  .email-label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber); }
   .copy-btn {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    color: var(--amber);
-    background: none;
-    border: 1px solid #e8c07a;
-    border-radius: 4px;
-    padding: 4px 10px;
-    cursor: pointer;
-    transition: all var(--transition);
-    font-family: var(--sans);
+    font-size: 11px; font-weight: 600; letter-spacing: 0.06em;
+    color: var(--amber); background: none; border: 1px solid #e8c07a;
+    border-radius: 4px; padding: 4px 10px; cursor: pointer;
+    transition: all var(--transition); font-family: var(--sans);
   }
-
   .copy-btn:active { background: var(--amber); color: white; }
   .copy-btn.copied { background: var(--green-pale); border-color: #95d5b2; color: var(--green); }
-
   .email-body {
-    padding: 16px 18px;
-    font-size: 14px;
-    color: var(--text-mid);
-    line-height: 1.7;
-    white-space: pre-wrap;
-    word-break: break-word;
+    padding: 16px 18px; font-size: 14px; color: var(--text-mid);
+    line-height: 1.7; white-space: pre-wrap; word-break: break-word;
   }
 
-  /* ---- ERROR STATE ---- */
   .error-card {
-    background: #fff5f5;
-    border: 1px solid #fca5a5;
-    border-radius: var(--radius-lg);
-    padding: 20px;
-    text-align: center;
-    display: none;
+    background: #fff5f5; border: 1px solid #fca5a5;
+    border-radius: var(--radius-lg); padding: 20px; text-align: center; display: none;
   }
-
   .error-card.visible { display: block; }
-
-  .error-title {
-    font-family: var(--serif);
-    font-size: 17px;
-    color: #c0392b;
-    margin-bottom: 6px;
-  }
-
-  .error-msg {
-    font-size: 13px;
-    color: #7f1d1d;
-    margin-bottom: 14px;
-    line-height: 1.5;
-  }
-
+  .error-title { font-family: var(--serif); font-size: 17px; color: #c0392b; margin-bottom: 6px; }
+  .error-msg { font-size: 13px; color: #7f1d1d; margin-bottom: 14px; line-height: 1.5; }
   .retry-btn {
-    padding: 10px 24px;
-    background: #c0392b;
-    border: none;
-    border-radius: var(--radius);
-    color: white;
-    font-family: var(--sans);
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
+    padding: 10px 24px; background: #c0392b; border: none; border-radius: var(--radius);
+    color: white; font-family: var(--sans); font-size: 13px; font-weight: 600; cursor: pointer;
   }
 
-  /* ---- RESET ---- */
   .new-search-btn {
-    width: 100%;
-    padding: 14px;
-    background: transparent;
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    color: var(--text-muted);
-    font-family: var(--sans);
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all var(--transition);
-    margin-top: 24px;
+    width: 100%; padding: 14px; background: transparent;
+    border: 1px solid var(--border); border-radius: var(--radius);
+    color: var(--text-muted); font-family: var(--sans);
+    font-size: 14px; font-weight: 500; cursor: pointer;
+    transition: all var(--transition); margin-top: 24px;
   }
-
   .new-search-btn:hover { border-color: var(--green-light); color: var(--green); }
 
-  /* ---- FOOTER ---- */
-  .page-footer {
-    text-align: center;
-    padding: 20px;
-    font-size: 11px;
-    color: var(--text-dim);
-    letter-spacing: 0.04em;
-  }
+  .page-footer { text-align: center; padding: 20px; font-size: 11px; color: var(--text-dim); letter-spacing: 0.04em; }
 </style>
 </head>
 <body>
 
-<!-- ===================== HEADER ===================== -->
 <div class="page-header">
   <div class="header-eyebrow">Bridging Communities CTE</div>
   <div class="header-title">Kids Feeding Kids<br><em>Partner Finder</em></div>
@@ -651,7 +279,6 @@
 
 <div class="main">
 
-  <!-- ===================== FORM SECTION ===================== -->
   <div id="form-section">
 
     <div class="card">
@@ -695,7 +322,6 @@
         <input type="text" id="program-name" value="Kids Feeding Kids" class="prefilled" readonly>
         <div class="prefilled-note">Pre-filled for your program</div>
       </div>
-
     </div>
 
     <div class="card">
@@ -734,7 +360,6 @@
       </div>
       <div class="field-error" id="err-needs" style="margin-top:8px;">Select at least one.</div>
 
-      <!-- Live prompt preview -->
       <div class="prompt-preview" id="prompt-preview">
         <div class="prompt-preview-label">Searching for</div>
         <div class="prompt-preview-text" id="prompt-preview-text"></div>
@@ -746,63 +371,55 @@
       <span class="btn-text">Find Partners</span>
     </button>
 
-  </div><!-- /form-section -->
+  </div>
 
-  <!-- ===================== LOADING STATE ===================== -->
   <div class="loading-state" id="loading-state">
-    <div class="loading-dots">
-      <span></span><span></span><span></span>
-    </div>
+    <div class="loading-dots"><span></span><span></span><span></span></div>
     <div class="loading-label">Searching your community...</div>
     <div class="loading-sub">Finding organizations that can receive, store, and distribute meals to families in need.</div>
   </div>
 
-  <!-- ===================== ERROR STATE ===================== -->
   <div class="error-card" id="error-card">
     <div class="error-title">Something went wrong</div>
     <div class="error-msg" id="error-msg">Could not reach the search service. Check your connection and try again.</div>
     <button class="retry-btn" onclick="resetForm()">Try Again</button>
   </div>
 
-  <!-- ===================== RESULTS ===================== -->
   <div class="results-section" id="results-section">
-
     <div class="results-header">
       <div class="results-title">Partner Organizations</div>
       <div class="results-meta" id="results-meta"></div>
     </div>
-
     <div id="org-list"></div>
-
     <div class="email-section" id="email-section" style="margin-top:28px;">
       <div class="email-section-title">Outreach Email Drafts</div>
       <div class="email-section-sub">Three versions — use whichever fits your situation. Tap to copy.</div>
       <div id="email-list"></div>
     </div>
-
     <button class="new-search-btn" onclick="resetForm()">Start a New Search</button>
+  </div>
 
-  </div><!-- /results-section -->
-
-</div><!-- /main -->
+</div>
 
 <div class="page-footer">Kids Feeding Kids — Bridging Communities Regional CTE</div>
 
 <script>
 // ============================================================
-//  KFK PARTNER FINDER v1.2
-//  Google Apps Script proxy — API key lives server-side
-//  Swap PROXY_URL with your deployed Apps Script web app URL
+//  KFK PARTNER FINDER v1.4
+//  Direct Google Gemini API — no proxy required
+//
+//  SETUP: Replace YOUR_KEY_HERE with your Gemini API key.
+//  Get one free at aistudio.google.com
+//  Keep this file private — do not share publicly with key in place.
 // ============================================================
 
-const PROXY_URL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec';
-const CACHE_TTL_MS = 60 * 60 * 1000; // 60-minute client cache
+const GEMINI_API_KEY = 'YOUR_KEY_HERE';
+const CACHE_TTL_MS = 60 * 60 * 1000;
 
-// ---- LOCAL STORAGE CACHE ----
+// ---- CACHE ----
 function getCacheKey(city, state, needs) {
   return 'kfk_' + [city, state, ...needs.sort()].join('|').toLowerCase().replace(/\s+/g, '_');
 }
-
 function getCached(key) {
   try {
     const raw = localStorage.getItem(key);
@@ -812,31 +429,63 @@ function getCached(key) {
     return data;
   } catch(e) { return null; }
 }
-
 function setCache(key, data) {
-  try { localStorage.setItem(key, JSON.stringify({ timestamp: Date.now(), data })); } catch(e) {}
+  try { localStorage.setItem(key, JSON.stringify({ timestamp: Date.now(), data })); } catch(e) {} 
 }
 
-// ---- CHECKBOX TOGGLE LOGIC ----
+// ---- BUILD PROMPT ----
+function buildPrompt(city, state, programName, needs) {
+  const needsStr = needs.join(', ');
+  return `You are helping a school culinary program called "${programName}" find community partner organizations in ${city}, ${state}.
+
+They need partners who can help with: ${needsStr}.
+
+Search your knowledge for real, specific organizations in or near ${city}, ${state} that:
+- Are food banks, food pantries, churches, nonprofits, community centers, or similar organizations
+- Serve food-insecure families
+- Likely have cold storage infrastructure and/or distribution networks
+
+Return ONLY a valid JSON object with this exact structure — no markdown, no explanation, just the JSON:
+
+{
+  "success": true,
+  "organizations": [
+    {
+      "name": "Organization name",
+      "type": "Food Bank | Food Pantry | Church | Nonprofit | Community Center | etc.",
+      "why_fit": "One or two sentences on why this org is a good fit for this specific need.",
+      "contact": "Director name or general contact title if known, otherwise 'Contact via website'",
+      "outreach_method": "Phone | Email | Walk-in | Website form",
+      "phone": "Phone number or 'Not available'",
+      "link": "Website URL or 'Not available'"
+    }
+  ],
+  "email_drafts": {
+    "short": "Subject: Partnership Inquiry — Kids Feeding Kids Program\n\nHi [Name],\n\nI'm [Your Name], culinary instructor at [Your School]. Our Kids Feeding Kids program prepares meals for food-insecure families and we're looking for a community partner in ${city} for ${needsStr}.\n\nWould you be open to a brief call?\n\nThank you,\n[Your Name]\n[Phone]",
+    "medium": "Subject: School Meal Partnership — Kids Feeding Kids\n\nHello,\n\nI'm reaching out on behalf of Kids Feeding Kids, a culinary education program at [Your School] in ${city}, ${state}. Our students prepare real meals as part of their ProStart culinary curriculum, and we're seeking community partners who can help with ${needsStr}.\n\nThis is a student-led initiative — every meal made connects classroom learning to real community need. We're looking for a reliable partner to receive our meals and help them reach families in need.\n\nI'd love to schedule a short call to explore whether this might be a fit.\n\nWarm regards,\n[Your Name]\n[Title], [School]\n[Phone] | [Email]",
+    "detailed": "Subject: Community Partnership Proposal — Kids Feeding Kids, [Your School]\n\nDear [Organization Name] Team,\n\nMy name is [Your Name], and I serve as the culinary arts instructor at [Your School] in ${city}, ${state}. I'm writing to introduce Kids Feeding Kids, a program within our ProStart culinary curriculum that trains students to prepare nutritious meals for distribution to food-insecure families in our community.\n\nWe are currently seeking a community partner who can assist with ${needsStr}. Our students take this work seriously — meals are prepared under safe food handling standards and our program runs on a regular production schedule.\n\nA partnership with your organization would:\n- Give our students a meaningful, real-world outlet for their skills\n- Help your organization extend its reach without adding kitchen burden\n- Connect two community missions — education and food access — in a sustainable way\n\nI would welcome the opportunity to visit your facility, answer any questions, and discuss what a formal partnership might look like.\n\nWith gratitude,\n[Your Name]\n[Title]\n[School Name]\n[Address]"
+  }
+}
+
+Return 8-12 organizations. Prioritize organizations most likely to already have cold storage and serve families in ${city}, ${state}. Use real organizations you know to exist there.`;
+}
+
+// ---- CHECKBOX LOGIC ----
 document.querySelectorAll('.checkbox-option').forEach(option => {
   option.addEventListener('click', function() {
     const input = this.querySelector('input[type="checkbox"]');
     input.checked = !input.checked;
     this.classList.toggle('checked', input.checked);
 
-    // "All of the above" — bidirectional sync
     if (input.value === 'all') {
-      // All toggled: sync every checkbox to match
       document.querySelectorAll('.checkbox-option').forEach(o => {
         o.querySelector('input').checked = input.checked;
         o.classList.toggle('checked', input.checked);
       });
     } else {
-      // Individual item: auto-check All only if every individual is now checked
       const allInput = document.querySelector('#opt-both input');
       const allChecked = [...document.querySelectorAll('.checkbox-option input')]
-        .filter(i => i.value !== 'all')
-        .every(i => i.checked);
+        .filter(i => i.value !== 'all').every(i => i.checked);
       allInput.checked = allChecked;
       document.getElementById('opt-both').classList.toggle('checked', allChecked);
     }
@@ -846,12 +495,11 @@ document.querySelectorAll('.checkbox-option').forEach(option => {
   });
 });
 
-// ---- LIVE PROMPT PREVIEW ----
+// ---- LIVE PREVIEW ----
 function updatePromptPreview() {
   const city = document.getElementById('city').value.trim();
   const state = document.getElementById('state').value;
   const needs = getSelectedNeeds();
-
   const preview = document.getElementById('prompt-preview');
   const previewText = document.getElementById('prompt-preview-text');
 
@@ -864,15 +512,10 @@ function updatePromptPreview() {
 }
 
 document.getElementById('city').addEventListener('input', function() {
-  clearError('err-city');
-  this.classList.remove('error');
-  updatePromptPreview();
+  clearError('err-city'); this.classList.remove('error'); updatePromptPreview();
 });
-
 document.getElementById('state').addEventListener('change', function() {
-  clearError('err-state');
-  this.classList.remove('error');
-  updatePromptPreview();
+  clearError('err-state'); this.classList.remove('error'); updatePromptPreview();
 });
 
 function getSelectedNeeds() {
@@ -899,26 +542,10 @@ function validate() {
   const city = document.getElementById('city');
   const state = document.getElementById('state');
   const needs = getSelectedNeeds();
-
-  if (!city.value.trim()) {
-    city.classList.add('error');
-    showError('err-city');
-    valid = false;
-  }
-  if (!state.value) {
-    state.classList.add('error');
-    showError('err-state');
-    valid = false;
-  }
-  if (needs.length === 0) {
-    showError('err-needs');
-    valid = false;
-  }
+  if (!city.value.trim()) { city.classList.add('error'); showError('err-city'); valid = false; }
+  if (!state.value) { state.classList.add('error'); showError('err-state'); valid = false; }
+  if (needs.length === 0) { showError('err-needs'); valid = false; }
   return valid;
-}
-
-
-Return 8-12 organizations. Prioritize organizations most likely to already have cold storage and serve families in ${city}, ${state}. Be specific to this location.`;
 }
 
 // ---- SUBMIT ----
@@ -930,13 +557,11 @@ async function handleSubmit() {
   const programName = document.getElementById('program-name').value;
   const needs = getSelectedNeeds();
 
-  // UI: loading state
   document.getElementById('form-section').style.display = 'none';
   document.getElementById('loading-state').classList.add('visible');
   document.getElementById('error-card').classList.remove('visible');
   document.getElementById('results-section').classList.remove('visible');
 
-  // Check client-side cache first (60 min TTL)
   const cacheKey = getCacheKey(city, state, needs);
   const cached = getCached(cacheKey);
   if (cached) {
@@ -946,33 +571,44 @@ async function handleSubmit() {
   }
 
   try {
-    const response = await fetch(PROXY_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ city, state, programName, needs })
-    });
+    const prompt = buildPrompt(city, state, programName, needs);
+
+    const response = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          contents: [{ parts: [{ text: prompt }] }],
+          generationConfig: { maxOutputTokens: 4096, temperature: 0.3 }
+        })
+      }
+    );
 
     if (!response.ok) {
-      throw new Error(`Proxy error: ${response.status} ${response.statusText}`);
+      const errData = await response.json().catch(() => ({}));
+      throw new Error(errData.error?.message || `API error: ${response.status}`);
     }
 
-    const data = await response.json();
+    const apiData = await response.json();
+    const rawText = apiData.candidates?.[0]?.content?.parts?.[0]?.text || '';
+    const cleaned = rawText.replace(/^```json\s*/i, '').replace(/```\s*$/i, '').trim();
+    const data = JSON.parse(cleaned);
 
-    if (!data.success) {
-      throw new Error(data.message || 'The search service is temporarily unavailable.');
-    }
+    if (!data.success) throw new Error('Search returned no results.');
 
-    // Cache successful result client-side
     setCache(cacheKey, data);
-
     document.getElementById('loading-state').classList.remove('visible');
-    renderResults(data, city, state, data.cached || false);
+    renderResults(data, city, state, false);
 
   } catch (err) {
     document.getElementById('loading-state').classList.remove('visible');
-    document.getElementById('error-msg').textContent = err.message.includes('Proxy error')
-      ? 'Could not reach the search service. Check your connection and try again.'
-      : err.message || 'Something went wrong. Please try again in a moment.';
+    let msg = 'Something went wrong. Please try again in a moment.';
+    if (err.message.includes('401')) msg = 'API key issue — check that your key is valid and has credits.';
+    else if (err.message.includes('429')) msg = 'Too many requests. Wait a moment and try again.';
+    else if (err.message.includes('SyntaxError') || err.message.includes('JSON')) msg = 'Got an unexpected response. Try again.';
+    else if (err.message) msg = err.message;
+    document.getElementById('error-msg').textContent = msg;
     document.getElementById('error-card').classList.add('visible');
     console.error('[KFK Partner Finder]', err);
   }
@@ -983,18 +619,15 @@ function renderResults(data, city, state, fromCache) {
   const orgs = data.organizations || [];
   const emails = data.email_drafts || {};
 
-  // Header meta — show cache indicator if results came from cache
   const cacheBadge = fromCache
     ? ' <span style="font-size:10px;background:#d8f3dc;color:#2d6a4f;border-radius:4px;padding:2px 7px;font-weight:600;letter-spacing:0.06em;vertical-align:middle;">CACHED</span>'
     : '';
   document.getElementById('results-meta').innerHTML =
     `${orgs.length} organization${orgs.length !== 1 ? 's' : ''} — ${city}, ${state}${cacheBadge}`;
 
-  // Org cards
   const orgList = document.getElementById('org-list');
   orgList.innerHTML = '';
 
-  // FIX: Empty state
   if (orgs.length === 0) {
     orgList.innerHTML = `
       <div style="background:#fff;border:1px solid #e2ddd4;border-radius:12px;padding:28px 20px;text-align:center;">
@@ -1012,7 +645,6 @@ function renderResults(data, city, state, fromCache) {
 
   document.getElementById('email-section').style.display = 'block';
 
-  // FIX: Verification disclaimer
   const disclaimer = document.createElement('div');
   disclaimer.style.cssText = 'background:#fef3e2;border:1px solid #f0d9b5;border-left:3px solid #c77d2a;border-radius:8px;padding:12px 16px;margin-bottom:16px;font-size:13px;color:#7a4a10;line-height:1.5;';
   disclaimer.innerHTML = '<strong style="display:block;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:3px;">Before You Reach Out</strong>Verify all contact details before reaching out — these are starting points, not confirmed partnerships. Organizations change. A quick call before sending an email goes a long way.';
@@ -1021,20 +653,16 @@ function renderResults(data, city, state, fromCache) {
   orgs.forEach(org => {
     const card = document.createElement('div');
     card.className = 'org-card';
-
     const linkHTML = org.link && org.link !== 'Not available'
       ? `<a href="${escHtml(org.link)}" target="_blank" rel="noopener" class="org-link">${escHtml(org.link)}</a>`
       : `<span style="color:var(--text-dim);font-size:13px;">Not available</span>`;
-
     card.innerHTML = `
       <div class="org-header">
         <div class="org-name">${escHtml(org.name)}</div>
         <div class="org-type-badge">${escHtml(org.type)}</div>
       </div>
       <div class="org-body">
-        <div class="org-row">
-          <div class="why-fit">${escHtml(org.why_fit)}</div>
-        </div>
+        <div class="org-row"><div class="why-fit">${escHtml(org.why_fit)}</div></div>
         <div class="org-row">
           <div class="org-row-label">Point of Contact</div>
           <div class="org-row-value">${escHtml(org.contact || 'Not specified')}</div>
@@ -1054,17 +682,13 @@ function renderResults(data, city, state, fromCache) {
           <div class="org-row-label">Website</div>
           <div class="org-row-value">${linkHTML}</div>
         </div>
-      </div>
-    `;
+      </div>`;
     orgList.appendChild(card);
   });
 
-  // Email drafts
   const emailList = document.getElementById('email-list');
   emailList.innerHTML = '';
-
   const emailLabels = { short: 'Short Version', medium: 'Medium Version', detailed: 'Detailed Version' };
-
   Object.entries(emailLabels).forEach(([key, label]) => {
     if (!emails[key]) return;
     const card = document.createElement('div');
@@ -1075,8 +699,7 @@ function renderResults(data, city, state, fromCache) {
         <div class="email-label">${label}</div>
         <button class="copy-btn" id="copy-${key}" onclick="copyEmail('${emailId}', 'copy-${key}')">Copy</button>
       </div>
-      <div class="email-body" id="${emailId}">${escHtml(emails[key])}</div>
-    `;
+      <div class="email-body" id="${emailId}">${escHtml(emails[key])}</div>`;
     emailList.appendChild(card);
   });
 
@@ -1088,35 +711,24 @@ function renderResults(data, city, state, fromCache) {
 function copyEmail(textId, btnId) {
   const text = document.getElementById(textId).textContent;
   const btn = document.getElementById(btnId);
-
   function onSuccess() {
     btn.textContent = 'Copied';
     btn.classList.add('copied');
     setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
   }
-
-  // Modern clipboard API (requires HTTPS)
   if (navigator.clipboard && window.isSecureContext) {
     navigator.clipboard.writeText(text).then(onSuccess).catch(() => fallbackCopy(text, onSuccess));
   } else {
     fallbackCopy(text, onSuccess);
   }
 }
-
 function fallbackCopy(text, onSuccess) {
-  // Legacy execCommand fallback for HTTP or older browsers
   const ta = document.createElement('textarea');
   ta.value = text;
   ta.style.cssText = 'position:fixed;top:-9999px;left:-9999px;opacity:0;';
   document.body.appendChild(ta);
-  ta.focus();
-  ta.select();
-  try {
-    document.execCommand('copy');
-    onSuccess();
-  } catch(e) {
-    console.warn('[KFK] Copy failed:', e);
-  }
+  ta.focus(); ta.select();
+  try { document.execCommand('copy'); onSuccess(); } catch(e) { console.warn('[KFK] Copy failed:', e); }
   document.body.removeChild(ta);
 }
 
@@ -1124,10 +736,8 @@ function fallbackCopy(text, onSuccess) {
 function escHtml(str) {
   if (!str) return '';
   return String(str)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;');
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
 // ---- RESET ----
@@ -1139,17 +749,12 @@ function resetForm() {
   document.getElementById('org-list').innerHTML = '';
   document.getElementById('email-list').innerHTML = '';
   document.getElementById('prompt-preview').classList.remove('visible');
-
-  // Clear checkboxes
   document.querySelectorAll('.checkbox-option').forEach(o => {
     o.querySelector('input').checked = false;
     o.classList.remove('checked');
   });
-
-  // Clear errors
   document.querySelectorAll('.field-error').forEach(e => e.classList.remove('visible'));
   document.querySelectorAll('.error').forEach(e => e.classList.remove('error'));
-
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 </script>
